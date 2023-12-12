@@ -6,6 +6,7 @@ import 'dotenv/config'
 import * as middleware from './middleware'
 
 import articlesRouter from './routers/articles.router'
+import * as authentificationService from './services/authentification.service'
 
 const PORT = process.env.PORT || 8080
 const ENV = process.env.NODE_ENV || 'development'
@@ -27,6 +28,14 @@ app.get('/', (req: Request, res: Response) => {
 // Articles routes
 
 app.use('/articles', articlesRouter)
+
+try {
+  authentificationService.getToken()
+} catch (e: any) {
+  console.log('eeeeeeeeeee',e)
+
+}
+
 
 // Error hanlding middleware
 

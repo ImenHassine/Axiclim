@@ -8,6 +8,8 @@ export type Configuration = {
   WIPSOS_URL: string;
   APP_DATABASE_URL: string;
   APP_LOG_LEVEL: string;
+  IDENTIFIANT: string;
+  MOTDEPASSE: string;
 };
 
 let currentConfig: Configuration = {
@@ -15,6 +17,8 @@ let currentConfig: Configuration = {
     PORT: +(process.env.PORT || 3000),
     WIPSOS_URL: process.env.WIPSOS_URL || 'http://wipsos-extranet.com',
     APP_DATABASE_URL: process.env.APP_DATABASE_URL || '',
+    IDENTIFIANT: process.env.IDENTIFIANT || '',
+    MOTDEPASSE: process.env.MOTDEPASSE || '',
     APP_LOG_LEVEL: process.env.APP_LOG_LEVEL || 'info'
   }
 

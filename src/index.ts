@@ -6,7 +6,9 @@ import 'dotenv/config'
 import * as middleware from './middleware'
 
 import articlesRouter from './routers/articles.router'
-import * as authentificationService from './services/authentification.service'
+// import * as authentificationService from './services/authentification.service'
+import * as personnelService from './services/personnel.service'
+
 
 const PORT = process.env.PORT || 8080
 const ENV = process.env.NODE_ENV || 'development'
@@ -30,9 +32,11 @@ app.get('/', (req: Request, res: Response) => {
 app.use('/articles', articlesRouter)
 
 try {
-  authentificationService.getToken()
+  // authentificationService.getToken()
+  personnelService.getAll()
+
 } catch (e: any) {
-  console.log('eeeeeeeeeee',e)
+  console.log('eeeesseseeeeee',e)
 
 }
 
